@@ -10,6 +10,8 @@
     "graphConfig" : {
       "entityConfig" : {
         "incremental_predicates" : [ "\"content < 10\"" ],
+        "materialized" : "incremental",
+        "on_schema_change" : "'ignore'",
         "incremental_strategy" : "\"merge\"",
         "type" : "ModelConfig"
       }
