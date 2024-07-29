@@ -1,7 +1,9 @@
 {{
   config({    
+    "materialized": "incremental",
     "incremental_predicates": ["content < 10"],
-    "incremental_strategy": "merge"
+    "incremental_strategy": "merge",
+    "on_schema_change": 'ignore'
   })
 }}
 
