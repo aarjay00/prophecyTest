@@ -1,0 +1,129 @@
+{
+  "id" : "snap1",
+  "metainfo" : {
+    "label" : "snap1",
+    "autoLayout" : false,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "entityConfig" : {
+        "strategy" : "'timestamp'",
+        "updated_at" : "content",
+        "target_schema" : "schema_non_default",
+        "unique_key" : "content",
+        "type" : "SnapshotConfig"
+      }
+    },
+    "version" : 3
+  },
+  "processes" : {
+    "snap1##p6GEfrNx" : {
+      "id" : "snap1##p6GEfrNx",
+      "component" : "TargetSnapshot",
+      "metadata" : {
+        "label" : "snap1",
+        "x" : 220,
+        "y" : 20,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "query" : "SELECT * \n\nFROM content\n",
+        "customQuery" : false,
+        "customQueryDisabled" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "oAEDThdG",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "url",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "content",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "content"
+        } ],
+        "outputs" : [ {
+          "id" : "WcyRADe2",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "url",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "content",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "L4Mvg3xGL0bsBKcGrlBNI" : {
+      "id" : "L4Mvg3xGL0bsBKcGrlBNI",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "content",
+        "slug" : "content",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "content",
+          "sourceType" : "Source",
+          "sourceName" : "dais_gen_ai.web_bronze",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "jyv5cKh7RBh-em8_lmN2K",
+          "schema" : {
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "url",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "content",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "JBiIBlwSSEH2xQvEUnJXn",
+    "source" : "L4Mvg3xGL0bsBKcGrlBNI",
+    "sourcePort" : "jyv5cKh7RBh-em8_lmN2K",
+    "target" : "snap1##p6GEfrNx",
+    "targetPort" : "oAEDThdG"
+  } ],
+  "component" : "Snapshot"
+}

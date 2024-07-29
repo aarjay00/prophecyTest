@@ -23,12 +23,136 @@ functions:
   airflowFunctions: {}
   businessRules: {}
 subgraphs: {}
-sqlModels: {}
-sqlSnapshots: {}
+sqlModels:
+  .prophecy/metadata/sqlmodels/model1:
+    name: model1
+    schema:
+      providerType: Databricks
+      fields:
+      - name: url
+        dataType:
+          type: String
+      - name: content
+        dataType:
+          type: String
+    description: null
+    author: rohitjain@simpledatalabs.com
+    files:
+    - models/model1.sql
+    - .prophecy/ide/models/model1.json
+    sqlDependencies:
+      models: []
+      datasets: []
+      seeds: []
+      sources: []
+      snapshots: []
+    createdAt: '2024-07-29 10:59:16'
+sqlSnapshots:
+  .prophecy/metadata/sqlsnapshots/snap1:
+    name: snap1
+    schema:
+      providerType: Databricks
+      fields:
+      - name: url
+        dataType:
+          type: String
+      - name: content
+        dataType:
+          type: String
+    description: null
+    author: rohitjain@simpledatalabs.com
+    files:
+    - snapshots/snap1.sql
+    - .prophecy/ide/snapshots/snap1.json
+    sqlDependencies:
+      models: []
+      datasets: []
+      seeds: []
+      sources: []
+      snapshots: []
+    createdAt: '2024-07-29 11:03:23'
 sqlTests: {}
 sqlMacros: {}
 sqlSeeds: {}
-sqlSources: {}
+sqlSources:
+  .prophecy/metadata/sqlsources/dais_gen_ai_web_bronze:
+    name: dais_gen_ai.web_bronze
+    description: null
+    author: rohitjain@simpledatalabs.com
+    files:
+    - prophecy-sources/sources.yml
+    createdAt: '2024-07-29 11:02:30'
+    tables:
+    - name: content
+      schema:
+        providerType: databricks
+        fields:
+        - name: url
+          dataType:
+            type: String
+        - name: content
+          dataType:
+            type: String
+      description: null
+      author: rohitjain@simpledatalabs.com
+      createdAt: '2024-07-29 11:02:30'
+  .prophecy/metadata/sqlsources/qa-team_qa_database:
+    name: qa-team.qa_database
+    description: null
+    author: rohitjain@simpledatalabs.com
+    files:
+    - prophecy-sources/sources.yml
+    createdAt: '2024-07-29 10:59:33'
+    tables:
+    - name: all_type_non_partitioned
+      schema:
+        providerType: databricks
+        fields:
+        - name: c_tinyint
+          dataType:
+            type: TinyInt
+        - name: c_smallint
+          dataType:
+            type: SmallInt
+        - name: c_int
+          dataType:
+            type: Integer
+        - name: c_bigint
+          dataType:
+            type: Bigint
+        - name: c_float
+          dataType:
+            type: Float
+        - name: c_double
+          dataType:
+            type: Double
+        - name: c_string
+          dataType:
+            type: String
+        - name: c_boolean
+          dataType:
+            type: Boolean
+        - name: c_array
+          dataType:
+            type: Array
+            dataType:
+              type: String
+        - name: c_struct
+          dataType:
+            type: Struct
+            fields:
+            - name: city
+              dataType:
+                type: String
+            - name: state
+              dataType:
+                type: String
+            - name: pin
+              dataType:
+                type: Bigint
+      description: null
+      author: rohitjain@simpledatalabs.com
+      createdAt: '2024-07-29 10:59:33'
 sqlUnreferencedSources: {}
 sqlPipeline:
   name: sqlPipeline
