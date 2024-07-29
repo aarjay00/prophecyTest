@@ -8,7 +8,7 @@
     "editable" : true
   },
   "providerType" : "databricks",
-  "fabricId" : "2667",
+  "fabricId" : "8",
   "prophecyIDEFolder" : {
     "name" : "",
     "children" : { },
@@ -1715,6 +1715,10 @@
   "entitiesToSync" : [ {
     "name" : "model1",
     "type" : "Model",
+    "syncedOnce" : false
+  }, {
+    "name" : "snap1",
+    "type" : "Snapshot",
     "syncedOnce" : false
   } ],
   "frontEndLanguage" : "sql"
