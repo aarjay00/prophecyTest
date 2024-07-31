@@ -1,42 +1,40 @@
 {
-  "id" : "snap1",
+  "id" : "model2",
   "metainfo" : {
-    "label" : "snap1",
+    "label" : "model2",
     "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
     },
-    "graphConfig" : {
-      "entityConfig" : {
-        "strategy" : "'timestamp'",
-        "updated_at" : "\"content\"",
-        "target_schema" : "\"schema_non_default\"",
-        "unique_key" : "\"content\"",
-        "type" : "SnapshotConfig"
-      }
-    },
     "version" : 3
   },
   "processes" : {
-    "snap1##p6GEfrNx" : {
-      "id" : "snap1##p6GEfrNx",
-      "component" : "TargetSnapshot",
+    "model2##C7pmLsIM" : {
+      "id" : "model2##C7pmLsIM",
+      "component" : "TargetModel",
       "metadata" : {
-        "label" : "snap1",
-        "x" : 220,
+        "label" : "model2",
+        "x" : 20,
         "y" : 20,
         "phase" : 0,
-        "macroDependencies" : [ ]
+        "macroDependencies" : [ ],
+        "comment" : "Creates a new model named 'model2' that contains all the data from the 'content' table.",
+        "autoUpdateComment" : true
       },
       "properties" : {
-        "query" : "SELECT * \n\nFROM content\n",
+        "customQueryDisabled" : true,
         "customQuery" : false,
-        "customQueryDisabled" : true
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM content\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "oAEDThdG",
+          "id" : "hFovVOBD",
           "schema" : {
             "providerType" : "databricks",
             "fields" : [ {
@@ -54,15 +52,10 @@
           "slug" : "content"
         } ],
         "outputs" : [ {
-          "id" : "WcyRADe2",
+          "id" : "EMJyac13",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
-              "name" : "url",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
               "name" : "content",
               "dataType" : {
                 "type" : "String"
@@ -71,18 +64,18 @@
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
       }
     },
-    "L4Mvg3xGL0bsBKcGrlBNI" : {
-      "id" : "L4Mvg3xGL0bsBKcGrlBNI",
+    "joNeb6CxdM6nkXlUcgJGF" : {
+      "id" : "joNeb6CxdM6nkXlUcgJGF",
       "component" : "Source",
       "metadata" : {
         "label" : "content",
         "slug" : "content",
-        "x" : 20,
-        "y" : 20,
+        "x" : -540,
+        "y" : -240,
         "phase" : 0
       },
       "properties" : {
@@ -96,7 +89,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "jyv5cKh7RBh-em8_lmN2K",
+          "id" : "vrnRp87EZ0N_MupfrmZkr",
           "schema" : {
             "providerType" : "databricks",
             "fields" : [ {
@@ -119,11 +112,11 @@
     }
   },
   "connections" : [ {
-    "id" : "JBiIBlwSSEH2xQvEUnJXn",
-    "source" : "L4Mvg3xGL0bsBKcGrlBNI",
-    "sourcePort" : "jyv5cKh7RBh-em8_lmN2K",
-    "target" : "snap1##p6GEfrNx",
-    "targetPort" : "oAEDThdG"
+    "id" : "7aZHehXQOjBYrpK0S3F0w",
+    "source" : "joNeb6CxdM6nkXlUcgJGF",
+    "sourcePort" : "vrnRp87EZ0N_MupfrmZkr",
+    "target" : "model2##C7pmLsIM",
+    "targetPort" : "hFovVOBD"
   } ],
-  "component" : "Snapshot"
+  "component" : "Model"
 }

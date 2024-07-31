@@ -2,9 +2,9 @@
 {{
   config({    
     "strategy": 'timestamp',
-    "target_schema": schema_non_default,
-    "unique_key": content,
-    "updated_at": content
+    "target_schema": "schema_non_default",
+    "unique_key": "content",
+    "updated_at": "content"
   })
 }}
 

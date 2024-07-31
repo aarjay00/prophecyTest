@@ -47,6 +47,26 @@ sqlModels:
       sources: []
       snapshots: []
     createdAt: '2024-07-29 10:59:16'
+  .prophecy/metadata/sqlmodels/model2:
+    name: model2
+    schema:
+      providerType: Databricks
+      fields:
+      - name: content
+        dataType:
+          type: String
+    description: null
+    author: rohitjain@simpledatalabs.com
+    files:
+    - models/model2.sql
+    - .prophecy/ide/models/model2.json
+    sqlDependencies:
+      models: []
+      datasets: []
+      seeds: []
+      sources: []
+      snapshots: []
+    createdAt: '2024-07-31 06:26:57'
 sqlSnapshots:
   .prophecy/metadata/sqlsnapshots/snap1:
     name: snap1
