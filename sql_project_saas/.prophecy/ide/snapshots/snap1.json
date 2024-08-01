@@ -2,7 +2,7 @@
   "id" : "snap1",
   "metainfo" : {
     "label" : "snap1",
-    "autoLayout" : true,
+    "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
@@ -14,34 +14,49 @@
         "target_schema" : "schema_non_default",
         "unique_key" : "content",
         "type" : "SnapshotConfig"
-      },
-      "userDefinedConfig" : {
-        "vars" : { }
       }
     },
     "version" : 3
   },
   "processes" : {
-    "content##lDADcFvY" : {
-      "id" : "content##lDADcFvY",
-      "component" : "Source",
+    "snap1##p6GEfrNx" : {
+      "id" : "snap1##p6GEfrNx",
+      "component" : "TargetSnapshot",
       "metadata" : {
-        "label" : "content",
-        "phase" : 0
+        "label" : "snap1",
+        "x" : 220,
+        "y" : 20,
+        "phase" : 0,
+        "macroDependencies" : [ ]
       },
       "properties" : {
-        "table" : {
-          "name" : "content",
-          "sourceType" : "Source",
-          "sourceName" : "dais_gen_ai.web_bronze"
-        }
+        "query" : "SELECT * \n\nFROM content\n",
+        "customQuery" : false,
+        "customQueryDisabled" : true
       },
       "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "l6lEfBML",
+        "inputs" : [ {
+          "id" : "oAEDThdG",
           "schema" : {
             "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "url",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "content",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "content"
+        } ],
+        "outputs" : [ {
+          "id" : "WcyRADe2",
+          "schema" : {
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "url",
               "dataType" : {
@@ -60,48 +75,30 @@
         "autoUpdateOnRun" : false
       }
     },
-    "snap1##bPMaqaA6" : {
-      "id" : "snap1##bPMaqaA6",
-      "component" : "TargetModel",
+    "L4Mvg3xGL0bsBKcGrlBNI" : {
+      "id" : "L4Mvg3xGL0bsBKcGrlBNI",
+      "component" : "Source",
       "metadata" : {
-        "label" : "snap1",
-        "phase" : 0,
-        "macroDependencies" : [ ]
+        "label" : "content",
+        "slug" : "content",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0
       },
       "properties" : {
-        "customQueryDisabled" : true,
-        "customQuery" : false,
-        "incrementalEditorDisabled" : true,
-        "query" : "SELECT * \n\nFROM content\n",
-        "isModel" : false,
-        "incrementalKey" : false,
-        "incremental" : {
-          "expression" : "true"
+        "table" : {
+          "name" : "content",
+          "sourceType" : "Source",
+          "sourceName" : "dais_gen_ai.web_bronze",
+          "alias" : ""
         }
       },
       "ports" : {
-        "inputs" : [ {
-          "id" : "Wtbf8ks4",
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "jyv5cKh7RBh-em8_lmN2K",
           "schema" : {
             "providerType" : "databricks",
-            "fields" : [ {
-              "name" : "url",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "content",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "slug" : "content"
-        } ],
-        "outputs" : [ {
-          "id" : "VqESNMJT",
-          "schema" : {
-            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "url",
               "dataType" : {
@@ -122,11 +119,11 @@
     }
   },
   "connections" : [ {
-    "id" : "sGIk2cBJ",
-    "source" : "content##lDADcFvY",
-    "sourcePort" : "l6lEfBML",
-    "target" : "snap1##bPMaqaA6",
-    "targetPort" : "Wtbf8ks4"
+    "id" : "JBiIBlwSSEH2xQvEUnJXn",
+    "source" : "L4Mvg3xGL0bsBKcGrlBNI",
+    "sourcePort" : "jyv5cKh7RBh-em8_lmN2K",
+    "target" : "snap1##p6GEfrNx",
+    "targetPort" : "oAEDThdG"
   } ],
   "component" : "Snapshot"
 }
