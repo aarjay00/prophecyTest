@@ -21,7 +21,7 @@
   "processes" : {
     "snap1##p6GEfrNx" : {
       "id" : "snap1##p6GEfrNx",
-      "component" : "TargetSnapshot",
+      "component" : "TargetModel",
       "metadata" : {
         "label" : "snap1",
         "x" : 220,
