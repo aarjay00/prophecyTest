@@ -1,0 +1,11 @@
+---
+version: 2
+snapshots:
+- name: "snap1"
+  columns:
+  - name: "url"
+    dataType:
+      type: "String"
+  - name: "content"
+    dataType:
+      type: "String"
