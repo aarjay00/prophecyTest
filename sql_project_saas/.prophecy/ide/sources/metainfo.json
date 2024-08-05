@@ -1712,6 +1712,14 @@
     "dependencies" : { },
     "prophecyProjectDependencies" : { }
   },
-  "entitiesToSync" : [ ],
+  "entitiesToSync" : [ {
+    "name" : "model1",
+    "type" : "Model",
+    "syncedOnce" : false
+  }, {
+    "name" : "snap1",
+    "type" : "Snapshot",
+    "syncedOnce" : false
+  } ],
   "frontEndLanguage" : "sql"
 }
