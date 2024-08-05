@@ -50,7 +50,15 @@ sqlModels:
 sqlSnapshots:
   .prophecy/metadata/sqlsnapshots/snap1:
     name: snap1
-    schema: null
+    schema:
+      providerType: Databricks
+      fields:
+      - name: url
+        dataType:
+          type: String
+      - name: content
+        dataType:
+          type: String
     description: null
     author: rohitjain@simpledatalabs.com
     files:
