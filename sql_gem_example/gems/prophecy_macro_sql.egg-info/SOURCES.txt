@@ -1,0 +1,11 @@
+setup.py
+prophecy_macro_sql/__init__.py
+prophecy_macro_sql.egg-info/PKG-INFO
+prophecy_macro_sql.egg-info/SOURCES.txt
+prophecy_macro_sql.egg-info/dependency_links.txt
+prophecy_macro_sql.egg-info/top_level.txt
+prophecy_macro_sql/macros/__init__.py
+prophecy_macro_sql/macros/deduplicate.py
+prophecy_macro_sql/macros/deduplicate2.py
+prophecy_macro_sql/macros/deduplicate3.py
+resources/extensions.idx

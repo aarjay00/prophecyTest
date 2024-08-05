@@ -1,20 +1,22 @@
 from dataclasses import dataclass
 
+from collections import defaultdict
 from prophecy.cb.sql.MacroBuilderBase import *
 from prophecy.cb.ui.uispec import *
 
 
-class Deduplicate1(MacroSpec):
-    name: str = "deduplicate1"
-    projectName: str = "macros_sql"
+class Deduplicate3(MacroSpec):
+    name: str = "deduplicate"
+    projectName: str = "dbt_utils"
     category: str = "Custom"
 
+
     @dataclass(frozen=True)
-    class Deduplicate1Properties(MacroProperties):
-        macroName: str = ''
-        projectName: str = ''
-        parameters: list[MacroParameter] = field(default_factory=list)
-	
+    class Deduplicate3Properties(MacroProperties):
+        tableName: str = ''
+        partitionBy: str = ''
+        orderBy: str = ''
+
     def dialog(self) -> Dialog:
         return Dialog("Macro") \
             .addElement(
@@ -24,15 +26,86 @@ class Deduplicate1(MacroSpec):
                 "content"
             )
             .addColumn(
-                StackLayout(height="100%")
-		.addElement(NativeText("Custom Deduplicate1 Macro UI"))
-		.addElement(
-                MacroInstance(
-                    "Macro Parameters",
-                    name="component.properties.macroName",
-                    projectName="component.properties.projectName"
-                    ).bindProperty("parameters").withSchemaSuggestions()
-                ),
-                "2fr"
+                StackLayout()
+                .addElement(
+                    TextBox("Table Name")
+                    .bindPlaceholder("Configure table name")
+                    .bindProperty("tableName")
+                )
+                .addElement(
+                    TextBox("Deduplicate Columns")
+                    .bindPlaceholder("Select a column to deduplicate on")
+                    .bindProperty("partitionBy")
+                )
+                .addElement(
+                    TextBox("Rows to keep logic")
+                    .bindPlaceholder("Select row on the basis of ordering a particular column")
+                    .bindProperty("orderBy")
+                )
             )
-        )                   
+        )
+
+    def validate(self, context: SqlContext, component: Component) -> List[Diagnostic]:
+        diagnostics = []
+        macroProjectMap = self.getMacroMap(context)
+        projectName = self.projectName if self.projectName != "" else context.projectName
+        if projectName not in macroProjectMap:
+            diagnostics.append(Diagnostic(
+                "properties.projectName",
+                f"Project name {self.projectName} doesn't exist. Current Project is ${context.projectName}",
+                SeverityLevelEnum.Error
+            ))
+        else:
+            macroDef: Optional[MacroDefFromSqlSource] = self.getMacro(self.name, projectName,
+                                                                      context)
+            if macroDef is None:
+                diagnostics.append(Diagnostic(
+                    "properties.macroName",
+                    f"Macro {self.name} doesn't exist",
+                    SeverityLevelEnum.Error
+                ))
+            else:
+                if component.properties.tableName == '':
+                    diagnostics.append(
+                        Diagnostic(
+                            f"properties.tableName",
+                            f"Please define table name",
+                            SeverityLevelEnum.Error
+                        )
+                    )
+                if component.properties.partitionBy == '':
+                    diagnostics.append(
+                        Diagnostic(
+                            f"properties.partitionBy",
+                            f"Please define partition by column",
+                            SeverityLevelEnum.Error
+                        )
+                    )
+                if component.properties.orderBy == '':
+                    diagnostics.append(
+                        Diagnostic(
+                            f"properties.orderBy",
+                            f"Please define order by by column",
+                            SeverityLevelEnum.Error
+                        )
+                    )
+        return diagnostics
+
+    def onChange(self, context: SqlContext, oldState: Component, newState: Component) -> Component:
+        return newState
+
+    def apply(self, props: Deduplicate3Properties) -> str:
+        if self.projectName != "":
+            resolved_macro_name = f"{self.projectName}.{self.name}"
+        else:
+            resolved_macro_name = self.name
+        non_empty_param = ",".join([param for param in [props.tableName, props.partitionBy, props.orderBy] if param != ''])
+        return f'{{{{ {resolved_macro_name}({non_empty_param}) }}}}'
+    
+    def loadProperties(self, properties: MacroProperties) -> PropertiesType:
+        parametersMap = self.convertToParameterMap(properties.parameters)
+        return Deduplicate3.Deduplicate3Properties(
+            tableName=parametersMap.get('relation'),
+            orderBy=parametersMap.get('order_by'),
+            partitionBy=parametersMap.get('partition_by')
+        )

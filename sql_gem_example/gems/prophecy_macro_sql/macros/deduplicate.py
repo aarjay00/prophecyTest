@@ -5,14 +5,14 @@ from prophecy.cb.sql.MacroBuilderBase import *
 from prophecy.cb.ui.uispec import *
 
 
-class Deduplicate2(MacroSpec):
-    name: str = "deduplicate2"
-    projectName: str = "macros_sql"
+class Deduplicate(MacroSpec):
+    name: str = "deduplicate"
+    projectName: str = "dbt_utils"
     category: str = "Custom"
 
 
     @dataclass(frozen=True)
-    class Deduplicate2Properties(MacroProperties):
+    class DeduplicateProperties(MacroProperties):
         tableName: str = ''
         partitionBy: str = ''
         orderBy: str = ''
@@ -94,7 +94,7 @@ class Deduplicate2(MacroSpec):
     def onChange(self, context: SqlContext, oldState: Component, newState: Component) -> Component:
         return newState
 
-    def apply(self, props: Deduplicate2Properties) -> str:
+    def apply(self, props: DeduplicateProperties) -> str:
         if self.projectName != "":
             resolved_macro_name = f"{self.projectName}.{self.name}"
         else:
@@ -104,7 +104,7 @@ class Deduplicate2(MacroSpec):
     
     def loadProperties(self, properties: MacroProperties) -> PropertiesType:
         parametersMap = self.convertToParameterMap(properties.parameters)
-        return Deduplicate2.Deduplicate2Properties(
+        return Deduplicate.DeduplicateProperties(
             tableName=parametersMap.get('relation'),
             orderBy=parametersMap.get('order_by'),
             partitionBy=parametersMap.get('partition_by')
