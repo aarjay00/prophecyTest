@@ -50,15 +50,7 @@ sqlModels:
 sqlSnapshots:
   .prophecy/metadata/sqlsnapshots/snap1:
     name: snap1
-    schema:
-      providerType: Databricks
-      fields:
-      - name: url
-        dataType:
-          type: String
-      - name: content
-        dataType:
-          type: String
+    schema: null
     description: null
     author: rohitjain@simpledatalabs.com
     files:
@@ -86,7 +78,13 @@ sqlSources:
     - name: content
       schema:
         providerType: databricks
-        fields: []
+        fields:
+        - name: url
+          dataType:
+            type: String
+        - name: content
+          dataType:
+            type: String
       description: null
       author: rohitjain@simpledatalabs.com
       createdAt: '2024-07-29 11:02:30'
@@ -101,7 +99,49 @@ sqlSources:
     - name: all_type_non_partitioned
       schema:
         providerType: databricks
-        fields: []
+        fields:
+        - name: c_tinyint
+          dataType:
+            type: TinyInt
+        - name: c_smallint
+          dataType:
+            type: SmallInt
+        - name: c_int
+          dataType:
+            type: Integer
+        - name: c_bigint
+          dataType:
+            type: Bigint
+        - name: c_float
+          dataType:
+            type: Float
+        - name: c_double
+          dataType:
+            type: Double
+        - name: c_string
+          dataType:
+            type: String
+        - name: c_boolean
+          dataType:
+            type: Boolean
+        - name: c_array
+          dataType:
+            type: Array
+            dataType:
+              type: String
+        - name: c_struct
+          dataType:
+            type: Struct
+            fields:
+            - name: city
+              dataType:
+                type: String
+            - name: state
+              dataType:
+                type: String
+            - name: pin
+              dataType:
+                type: Bigint
       description: null
       author: rohitjain@simpledatalabs.com
       createdAt: '2024-07-29 10:59:33'
