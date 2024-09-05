@@ -1,0 +1,134 @@
+{
+  "id" : "mode1",
+  "metainfo" : {
+    "label" : "mode1",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "userDefinedConfig" : {
+        "vars" : { }
+      }
+    },
+    "version" : 3
+  },
+  "processes" : {
+    "all_type_non_par##NOtHs8lp" : {
+      "id" : "all_type_non_par##NOtHs8lp",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "all_type_non_partitioned",
+        "phase" : 0,
+        "isLabelGrayed" : false
+      },
+      "properties" : {
+        "table" : {
+          "name" : "all_type_non_partitioned",
+          "sourceType" : "Source",
+          "sourceName" : "qa-team.qa_database"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "O2Je3RHI",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "databricks",
+            "fields" : [ ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "index" : 0
+    },
+    "deduplicate1_1##G3XEjdus" : {
+      "id" : "deduplicate1_1##G3XEjdus",
+      "component" : "Macro",
+      "metadata" : {
+        "label" : "deduplicate1_1",
+        "phase" : 0,
+        "macroDependencies" : [ "macros_sql.deduplicate2" ],
+        "isLabelGrayed" : false
+      },
+      "properties" : {
+        "macroName" : "deduplicate2",
+        "parameters" : [ {
+          "name" : "relation",
+          "value" : "'all_type_non_partitioned'"
+        }, {
+          "name" : "partition_by",
+          "value" : "c_int"
+        }, {
+          "name" : "order_by",
+          "value" : "c_float"
+        } ],
+        "projectName" : "macros_sql"
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "AHtMNk0r",
+          "slug" : "all_type_non_partitioned"
+        } ],
+        "outputs" : [ {
+          "id" : "XPahgMFe",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "index" : 1
+    },
+    "final##v7DS5Kld" : {
+      "id" : "final##v7DS5Kld",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "mode1",
+        "phase" : 0,
+        "isLabelGrayed" : false
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT *\n\nFROM deduplicate1_1\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "thCJh1Cr",
+          "slug" : "deduplicate1_1"
+        } ],
+        "outputs" : [ {
+          "id" : "JnsQmytP",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "index" : 2
+    }
+  },
+  "connections" : [ {
+    "id" : "lySyvDfu",
+    "source" : "all_type_non_par##NOtHs8lp",
+    "sourcePort" : "O2Je3RHI",
+    "target" : "deduplicate1_1##G3XEjdus",
+    "targetPort" : "AHtMNk0r"
+  }, {
+    "id" : "pcaQ5wfI",
+    "source" : "deduplicate1_1##G3XEjdus",
+    "sourcePort" : "XPahgMFe",
+    "target" : "final##v7DS5Kld",
+    "targetPort" : "thCJh1Cr"
+  } ],
+  "component" : "Model"
+}
