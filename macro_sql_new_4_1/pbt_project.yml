@@ -26,7 +26,52 @@ subgraphs: {}
 sqlModels:
   .prophecy/metadata/sqlmodels/mode1:
     name: mode1
-    schema: null
+    schema:
+      entityType: ''
+      providerType: Databricks
+      fields:
+      - name: c_tinyint
+        dataType:
+          type: TinyInt
+      - name: c_smallint
+        dataType:
+          type: SmallInt
+      - name: c_int
+        dataType:
+          type: Integer
+      - name: c_bigint
+        dataType:
+          type: Bigint
+      - name: c_float
+        dataType:
+          type: Float
+      - name: c_double
+        dataType:
+          type: Float
+      - name: c_string
+        dataType:
+          type: String
+      - name: c_boolean
+        dataType:
+          type: Boolean
+      - name: c_array
+        dataType:
+          type: Array
+          dataType:
+            type: String
+      - name: c_struct
+        dataType:
+          type: Struct
+          fields:
+          - name: city
+            dataType:
+              type: String
+          - name: state
+            dataType:
+              type: String
+          - name: pin
+            dataType:
+              type: Bigint
     description: null
     author: rohitjain@prophecy.io
     files:
@@ -50,6 +95,7 @@ sqlMacros:
     author: rohitjain@prophecy.io
     files:
     - macros/deduplicate.sql
+    - gems/deduplicate.py
     createdAt: '2024-05-02 07:18:58'
   .prophecy/metadata/sqlmacros/deduplicate2:
     name: deduplicate2
@@ -59,6 +105,7 @@ sqlMacros:
     files:
     - macros/deduplicate.sql
     - macros/macros.yml
+    - gems/deduplicate2.py
     createdAt: '2024-05-01 14:48:41'
   .prophecy/metadata/sqlmacros/deduplicate3:
     name: deduplicate3
@@ -84,7 +131,49 @@ sqlSources:
       schema:
         entityType: ''
         providerType: databricks
-        fields: []
+        fields:
+        - name: c_tinyint
+          dataType:
+            type: TinyInt
+        - name: c_smallint
+          dataType:
+            type: SmallInt
+        - name: c_int
+          dataType:
+            type: Integer
+        - name: c_bigint
+          dataType:
+            type: Bigint
+        - name: c_float
+          dataType:
+            type: Float
+        - name: c_double
+          dataType:
+            type: Double
+        - name: c_string
+          dataType:
+            type: String
+        - name: c_boolean
+          dataType:
+            type: Boolean
+        - name: c_array
+          dataType:
+            type: Array
+            dataType:
+              type: String
+        - name: c_struct
+          dataType:
+            type: Struct
+            fields:
+            - name: city
+              dataType:
+                type: String
+            - name: state
+              dataType:
+                type: String
+            - name: pin
+              dataType:
+                type: Bigint
       description: null
       author: rohitjain@prophecy.io
       createdAt: '2024-08-27 09:29:51'
