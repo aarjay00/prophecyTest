@@ -8,7 +8,7 @@ WITH all_type_non_partitioned AS (
 
 deduplicate1_1 AS (
 
-  {{ macros_sql.deduplicate2('all_type_non_partitioned', c_int, c_int) }}
+  {{ macros_sql.deduplicate2('all_type_non_partitioned', 'c_int', c_int) }}
 
 )
 
