@@ -1,6 +1,6 @@
 name: sql_gem_repo2
 description: ''
-version: '22'
+version: '1.0'
 author: sony@prophecy.io
 language: sql
 buildSystem: ''
