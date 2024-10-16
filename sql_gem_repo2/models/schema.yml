@@ -1,0 +1,12 @@
+---
+version: 2
+models:
+- name: "mod1"
+  columns:
+  - name: "w"
+    dataType:
+      type: "Integer"
+  - name: "ui"
+    dataType:
+      type: "Integer"
+  tests: []

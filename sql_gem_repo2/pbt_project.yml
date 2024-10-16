@@ -1,0 +1,113 @@
+name: sql_gem_repo2
+description: ''
+version: '22'
+author: sony@prophecy.io
+language: sql
+buildSystem: ''
+buildSystemDetails: null
+pipelines: {}
+datasets: {}
+templates: {}
+jobs: {}
+gemContainer:
+  languageVersion: ''
+  gemLibsVersion: ''
+  gems: {}
+  dependencies: null
+functions:
+  author: null
+  createdAt: '2024-10-10 08:58:35'
+  udfs: {}
+  udafs: {}
+  expressions: {}
+  airflowFunctions: {}
+  businessRules: {}
+subgraphs: {}
+sqlModels:
+  .prophecy/metadata/sqlmodels/mod1:
+    name: mod1
+    schema:
+      entityType: ''
+      providerType: Databricks
+      fields:
+      - name: w
+        dataType:
+          type: Integer
+      - name: ui
+        dataType:
+          type: Integer
+    description: null
+    author: sony@prophecy.io
+    files:
+    - models/mod1.sql
+    - .prophecy/ide/models/mod1.json
+    - models/schema.yml
+    sqlDependencies:
+      models: []
+      datasets: []
+      seeds: []
+      sources: []
+      snapshots: []
+    createdAt: '2024-10-10 09:03:43'
+sqlSnapshots: {}
+sqlTests: {}
+sqlMacros:
+  .prophecy/metadata/sqlmacros/g1:
+    name: g1
+    macroType: query
+    description: null
+    author: sony@prophecy.io
+    files:
+    - macros/g1.sql
+    - .prophecy/ide/macros/g1.json
+    - gems/g1.py
+    createdAt: '2024-10-16 05:29:26'
+  .prophecy/metadata/sqlmacros/g2:
+    name: g2
+    macroType: query
+    description: null
+    author: sony@prophecy.io
+    files:
+    - macros/g2.sql
+    - .prophecy/ide/macros/g2.json
+    - gems/g2.py
+    createdAt: '2024-10-16 05:29:58'
+  .prophecy/metadata/sqlmacros/generate_schema_name:
+    name: generate_schema_name
+    macroType: expression
+    description: null
+    author: sony@prophecy.io
+    files:
+    - macros/generate_schema_name.sql
+    - .prophecy/ide/macros/generate_schema_name.json
+    createdAt: '2024-10-10 08:58:43'
+sqlSeeds:
+  .prophecy/metadata/sqlseeds/see34:
+    name: see34
+    schema:
+      entityType: ''
+      providerType: Databricks
+      fields:
+      - name: w
+        dataType:
+          type: Integer
+      - name: ui
+        dataType:
+          type: Integer
+    description: null
+    author: sony@prophecy.io
+    files:
+    - seeds/see34.csv
+    createdAt: '2024-10-10 09:03:50'
+sqlSources: {}
+sqlUnreferencedSources: {}
+sqlPipeline:
+  name: sqlPipeline
+  description: null
+  author: sony@prophecy.io
+  createdAt: '2024-10-10 08:58:35'
+dependencies: []
+projectDependencies: {}
+flags:
+  shouldAddDefaultDependenciesIfAbsent: true
+pipelineConfigurations: {}
