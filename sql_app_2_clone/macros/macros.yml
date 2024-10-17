@@ -1,0 +1,23 @@
+---
+version: 2
+macros:
+- name: "gem2"
+  arguments:
+  - name: "parameter1"
+    type: "value"
+    description: "{\"ProphecyType\": \"value\"} {\"ProphecyType\": \"value\"}"
+  macroType: "query"
+- name: "gem1"
+  arguments:
+  - name: "parameter1"
+    type: "value"
+    description: "{\"ProphecyType\": \"value\"} {\"ProphecyType\": \"value\"} {\"\
+      ProphecyType\": \"value\"} {\"ProphecyType\": \"value\"}"
+  macroType: "query"
+- name: "f1"
+  arguments:
+  - name: "p1"
+    type: "value"
+    description: "{\"ProphecyType\": \"value\"} {\"ProphecyType\": \"value\"} {\"\
+      ProphecyType\": \"value\"} {\"ProphecyType\": \"value\"}"
+  macroType: "expression"

@@ -1,0 +1,125 @@
+name: sql_app_2
+description: ''
+version: 0.0.1
+author: rohitjain@prophecy.io
+language: sql
+buildSystem: ''
+buildSystemDetails: null
+pipelines: {}
+datasets: {}
+templates: {}
+jobs: {}
+gemContainer:
+  languageVersion: ''
+  gemLibsVersion: ''
+  gems: {}
+  dependencies: null
+functions:
+  author: null
+  createdAt: '2024-09-05 19:32:19'
+  udfs: {}
+  udafs: {}
+  expressions: {}
+  airflowFunctions: {}
+  businessRules: {}
+subgraphs: {}
+sqlModels:
+  .prophecy/metadata/sqlmodels/model2:
+    name: model2
+    schema:
+      entityType: ''
+      providerType: Databricks
+      fields:
+      - name: id
+        dataType:
+          type: Integer
+      - name: name
+        dataType:
+          type: String
+    description: null
+    author: rohitjain@prophecy.io
+    files:
+    - models/model2.sql
+    - .prophecy/ide/models/model2.json
+    - models/schema.yml
+    sqlDependencies:
+      models: []
+      datasets: []
+      seeds: []
+      sources: []
+      snapshots: []
+    createdAt: '2024-10-14 11:16:51'
+sqlSnapshots: {}
+sqlTests: {}
+sqlMacros:
+  .prophecy/metadata/sqlmacros/f1:
+    name: f1
+    macroType: expression
+    description: null
+    author: rohitjain@prophecy.io
+    files:
+    - macros/f1.sql
+    - .prophecy/ide/macros/f1.json
+    - macros/macros.yml
+    createdAt: '2024-10-17 14:38:13'
+  .prophecy/metadata/sqlmacros/gem1:
+    name: gem1
+    macroType: query
+    description: null
+    author: rohitjain@prophecy.io
+    files:
+    - macros/gem1.sql
+    - .prophecy/ide/macros/gem1.json
+    - macros/macros.yml
+    - gems/gem1.py
+    createdAt: '2024-10-17 11:03:39'
+  .prophecy/metadata/sqlmacros/gem2:
+    name: gem2
+    macroType: query
+    description: null
+    author: rohitjain@prophecy.io
+    files:
+    - macros/gem2.sql
+    - .prophecy/ide/macros/gem2.json
+    - macros/macros.yml
+    - gems/gem2.py
+    createdAt: '2024-10-17 11:03:24'
+  .prophecy/metadata/sqlmacros/generate_schema_name:
+    name: generate_schema_name
+    macroType: expression
+    description: null
+    author: rohitjain@prophecy.io
+    files:
+    - macros/generate_schema_name.sql
+    - .prophecy/ide/macros/generate_schema_name.json
+    createdAt: '2024-09-05 19:32:30'
+sqlSeeds:
+  .prophecy/metadata/sqlseeds/seed2:
+    name: seed2
+    schema:
+      entityType: ''
+      providerType: Databricks
+      fields:
+      - name: id
+        dataType:
+          type: Integer
+      - name: name
+        dataType:
+          type: String
+    description: null
+    author: rohitjain@prophecy.io
+    files:
+    - seeds/seed2.csv
+    createdAt: '2024-10-14 11:16:28'
+sqlSources: {}
+sqlUnreferencedSources: {}
+sqlPipeline:
+  name: sqlPipeline
+  description: null
+  author: rohitjain@prophecy.io
+  createdAt: '2024-09-05 19:32:19'
+dependencies: []
+projectDependencies: {}
+flags:
+  shouldAddDefaultDependenciesIfAbsent: true
+pipelineConfigurations: {}
