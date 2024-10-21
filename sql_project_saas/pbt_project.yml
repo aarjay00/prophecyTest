@@ -1,6 +1,6 @@
 name: sql_project_saas
 description: ''
-version: 0.0.1
+version: '1.0'
 author: null
 language: sql
 buildSystem: ''
