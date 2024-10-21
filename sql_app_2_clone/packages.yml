@@ -1,0 +1,5 @@
+---
+packages:
+- revision: "main"
+  git: "https://github.com/aarjay00/prophecyTest/"
+  subdirectory: "sql_gem_repo2"

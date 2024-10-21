@@ -1,0 +1,132 @@
+{
+  "id" : "mod1",
+  "metainfo" : {
+    "label" : "mod1",
+    "autoLayout" : false,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "version" : 3
+  },
+  "processes" : {
+    "mod1##BuKOmpkj" : {
+      "id" : "mod1##BuKOmpkj",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "mod1",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0,
+        "macroDependencies" : [ ],
+        "comment" : "Retrieves all records from the specified dataset.",
+        "autoUpdateComment" : true
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM see34\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "N6zzUMF3",
+          "slug" : "see34"
+        } ],
+        "outputs" : [ {
+          "id" : "G2DQIQJw",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "30iypLoYECxOyTK8T3pvi" : {
+      "id" : "30iypLoYECxOyTK8T3pvi",
+      "component" : "Seed",
+      "metadata" : {
+        "label" : "see34",
+        "slug" : "see34",
+        "x" : -600,
+        "y" : -180,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "see34",
+          "sourceType" : "Seed",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "1hkY0XCBcHoKKHj_HGFCA",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "OFwibl6KNPk2-BzuwK8be$$i2npaizs36tLXFUsTDpYg" : {
+      "id" : "OFwibl6KNPk2-BzuwK8be$$i2npaizs36tLXFUsTDpYg",
+      "component" : "g1",
+      "metadata" : {
+        "label" : "sql_gem_query",
+        "slug" : "sql_gem_query",
+        "x" : -920,
+        "y" : -340,
+        "phase" : 0,
+        "macroDependencies" : [ ],
+        "comment" : "Retrieves specific data or insights from a predefined query for further analysis."
+      },
+      "properties" : {
+        "parameter1" : "'see34'",
+        "_oldMacroProperties" : {
+          "macroName" : "g1",
+          "projectName" : "sql_gem_repo2",
+          "parameters" : [ {
+            "name" : "parameter1",
+            "value" : "'see34'"
+          } ]
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "fe5dd2hZy5-lAIvn6Sa_B$$CB2FU-KEot4E6XHk0cQy0",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "5LnhXOY_3OZZbgjolf7FZ$$hRa_nFNd6lMPZOqoOVhHb",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "componentInfo" : {
+        "gemId" : "g1_sql_gem_repo2",
+        "name" : "g1",
+        "projectName" : "sql_gem_repo2",
+        "sourceProjectName" : "sql_gem_repo2"
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "cOqhK-ZIpe0tH1bOAj8Fn",
+    "source" : "30iypLoYECxOyTK8T3pvi",
+    "sourcePort" : "1hkY0XCBcHoKKHj_HGFCA",
+    "target" : "mod1##BuKOmpkj",
+    "targetPort" : "N6zzUMF3"
+  }, {
+    "id" : "4qjHHop6WJS0TwkuRvsKf",
+    "source" : "30iypLoYECxOyTK8T3pvi",
+    "sourcePort" : "1hkY0XCBcHoKKHj_HGFCA",
+    "target" : "OFwibl6KNPk2-BzuwK8be$$i2npaizs36tLXFUsTDpYg",
+    "targetPort" : "fe5dd2hZy5-lAIvn6Sa_B$$CB2FU-KEot4E6XHk0cQy0"
+  } ],
+  "component" : "Model"
+}

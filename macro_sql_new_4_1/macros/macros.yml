@@ -1,0 +1,24 @@
+---
+version: 2
+macros:
+- name: "deduplicate2"
+  arguments:
+  - name: "relation"
+    type: "table"
+  - name: "partition_by"
+    type: "value"
+  - name: "order_by"
+    type: "value"
+  macroType: "query"
+- name: "deduplicate3"
+  arguments:
+  - name: "relation"
+    type: "value"
+    description: "{\"ProphecyType\": \"value\"}"
+  - name: "partition_by"
+    type: "value"
+    description: "{\"ProphecyType\": \"value\"}"
+  - name: "order_by"
+    type: "value"
+    description: "{\"ProphecyType\": \"value\"}"
+  macroType: "query"

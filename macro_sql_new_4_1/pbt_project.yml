@@ -1,0 +1,188 @@
+name: macro_sql_temp
+description: ''
+version: '0.1'
+author: null
+language: sql
+buildSystem: ''
+buildSystemDetails: null
+pipelines: {}
+datasets: {}
+templates: {}
+jobs: {}
+gemContainer:
+  languageVersion: ''
+  gemLibsVersion: ''
+  gems: {}
+  dependencies: null
+functions:
+  author: null
+  createdAt: '2024-04-12 10:38:08'
+  udfs: {}
+  udafs: {}
+  expressions: {}
+  airflowFunctions: {}
+  businessRules: {}
+subgraphs: {}
+sqlModels:
+  .prophecy/metadata/sqlmodels/mode1:
+    name: mode1
+    schema:
+      entityType: ''
+      providerType: Databricks
+      fields:
+      - name: c_tinyint
+        dataType:
+          type: TinyInt
+      - name: c_smallint
+        dataType:
+          type: SmallInt
+      - name: c_int
+        dataType:
+          type: Integer
+      - name: c_bigint
+        dataType:
+          type: Bigint
+      - name: c_float
+        dataType:
+          type: Float
+      - name: c_double
+        dataType:
+          type: Float
+      - name: c_string
+        dataType:
+          type: String
+      - name: c_boolean
+        dataType:
+          type: Boolean
+      - name: c_array
+        dataType:
+          type: Array
+          dataType:
+            type: String
+      - name: c_struct
+        dataType:
+          type: Struct
+          fields:
+          - name: city
+            dataType:
+              type: String
+          - name: state
+            dataType:
+              type: String
+          - name: pin
+            dataType:
+              type: Bigint
+    description: null
+    author: rohitjain@prophecy.io
+    files:
+    - models/mode1.sql
+    - .prophecy/ide/models/mode1.json
+    - models/schema.yml
+    sqlDependencies:
+      models: []
+      datasets: []
+      seeds: []
+      sources: []
+      snapshots: []
+    createdAt: '2024-08-27 09:29:43'
+sqlSnapshots: {}
+sqlTests: {}
+sqlMacros:
+  .prophecy/metadata/sqlmacros/deduplicate1:
+    name: deduplicate1
+    macroType: query
+    description: null
+    author: rohitjain@prophecy.io
+    files:
+    - macros/deduplicate.sql
+    createdAt: '2024-05-02 07:18:58'
+  .prophecy/metadata/sqlmacros/deduplicate2:
+    name: deduplicate2
+    macroType: query
+    description: null
+    author: rohitjain@prophecy.io
+    files:
+    - macros/deduplicate.sql
+    - macros/macros.yml
+    createdAt: '2024-05-01 14:48:41'
+  .prophecy/metadata/sqlmacros/deduplicate3:
+    name: deduplicate3
+    macroType: query
+    description: null
+    author: rohitjain@prophecy.io
+    files:
+    - macros/deduplicate3.sql
+    - .prophecy/ide/macros/deduplicate3.json
+    - macros/macros.yml
+    createdAt: '2024-08-30 06:56:45'
+sqlSeeds: {}
+sqlSources:
+  .prophecy/metadata/sqlsources/qa-team_qa_database:
+    name: qa-team.qa_database
+    description: null
+    author: rohitjain@prophecy.io
+    files:
+    - prophecy-sources/sources.yml
+    createdAt: '2024-08-27 09:29:51'
+    tables:
+    - name: all_type_non_partitioned
+      schema:
+        entityType: ''
+        providerType: databricks
+        fields:
+        - name: c_tinyint
+          dataType:
+            type: TinyInt
+        - name: c_smallint
+          dataType:
+            type: SmallInt
+        - name: c_int
+          dataType:
+            type: Integer
+        - name: c_bigint
+          dataType:
+            type: Bigint
+        - name: c_float
+          dataType:
+            type: Float
+        - name: c_double
+          dataType:
+            type: Double
+        - name: c_string
+          dataType:
+            type: String
+        - name: c_boolean
+          dataType:
+            type: Boolean
+        - name: c_array
+          dataType:
+            type: Array
+            dataType:
+              type: String
+        - name: c_struct
+          dataType:
+            type: Struct
+            fields:
+            - name: city
+              dataType:
+                type: String
+            - name: state
+              dataType:
+                type: String
+            - name: pin
+              dataType:
+                type: Bigint
+      description: null
+      author: rohitjain@prophecy.io
+      createdAt: '2024-08-27 09:29:51'
+sqlUnreferencedSources: {}
+sqlPipeline:
+  name: sqlPipeline
+  description: null
+  author: rohitjain@prophecy.io
+  createdAt: '2024-04-12 10:38:08'
+dependencies: []
+projectDependencies: {}
+flags:
+  shouldAddDefaultDependenciesIfAbsent: true
+pipelineConfigurations: {}
