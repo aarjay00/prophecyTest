@@ -1,7 +1,7 @@
 {
-  "id" : "snap1",
+  "id" : "snapshot2",
   "metainfo" : {
-    "label" : "snap1",
+    "label" : "snapshot2",
     "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
@@ -14,16 +14,60 @@
         "target_schema" : "\"schema_non_default\"",
         "unique_key" : "\"content\"",
         "type" : "SnapshotConfig"
+      },
+      "userDefinedConfig" : {
+        "vars" : { }
       }
     },
     "version" : 3
   },
   "processes" : {
-    "snap1##p6GEfrNx" : {
-      "id" : "snap1##p6GEfrNx",
+    "content##HGJcUk5N" : {
+      "id" : "content##HGJcUk5N",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "content",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "content",
+          "sourceType" : "Source",
+          "sourceName" : "dais_gen_ai.web_bronze"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "eyEHE8jF",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "url",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "content",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "snapshot2##xmL84NkE" : {
+      "id" : "snapshot2##xmL84NkE",
       "component" : "TargetSnapshot",
       "metadata" : {
-        "label" : "snap1",
+        "label" : "snapshot2",
         "x" : 220,
         "y" : 20,
         "phase" : 0,
@@ -36,7 +80,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "oAEDThdG",
+          "id" : "tHZ3kbRM",
           "schema" : {
             "entityType" : "",
             "providerType" : "databricks",
@@ -55,7 +99,7 @@
           "slug" : "content"
         } ],
         "outputs" : [ {
-          "id" : "WcyRADe2",
+          "id" : "C9GKbvvR",
           "schema" : {
             "entityType" : "",
             "providerType" : "Databricks",
@@ -76,57 +120,14 @@
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
       }
-    },
-    "L4Mvg3xGL0bsBKcGrlBNI" : {
-      "id" : "L4Mvg3xGL0bsBKcGrlBNI",
-      "component" : "Source",
-      "metadata" : {
-        "label" : "content",
-        "slug" : "content",
-        "x" : 20,
-        "y" : 20,
-        "phase" : 0
-      },
-      "properties" : {
-        "table" : {
-          "name" : "content",
-          "sourceType" : "Source",
-          "sourceName" : "dais_gen_ai.web_bronze",
-          "alias" : ""
-        }
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "jyv5cKh7RBh-em8_lmN2K",
-          "schema" : {
-            "entityType" : "",
-            "providerType" : "databricks",
-            "fields" : [ {
-              "name" : "url",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "content",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
     }
   },
   "connections" : [ {
-    "id" : "JBiIBlwSSEH2xQvEUnJXn",
-    "source" : "L4Mvg3xGL0bsBKcGrlBNI",
-    "sourcePort" : "jyv5cKh7RBh-em8_lmN2K",
-    "target" : "snap1##p6GEfrNx",
-    "targetPort" : "oAEDThdG"
+    "id" : "NLCs7SUl",
+    "source" : "content##HGJcUk5N",
+    "sourcePort" : "eyEHE8jF",
+    "target" : "snapshot2##xmL84NkE",
+    "targetPort" : "tHZ3kbRM"
   } ],
   "component" : "Snapshot"
 }

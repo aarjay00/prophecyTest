@@ -27,6 +27,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/model1:
     name: model1
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: url
@@ -50,6 +51,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/model2:
     name: model2
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: content
@@ -71,6 +73,7 @@ sqlSnapshots:
   .prophecy/metadata/sqlsnapshots/snap1:
     name: snap1
     schema:
+      entityType: ''
       providerType: Databricks
       fields:
       - name: url
@@ -91,8 +94,41 @@ sqlSnapshots:
       sources: []
       snapshots: []
     createdAt: '2024-07-29 11:03:23'
+  .prophecy/metadata/sqlsnapshots/snapshot2:
+    name: snapshot2
+    schema:
+      entityType: ''
+      providerType: Databricks
+      fields:
+      - name: url
+        dataType:
+          type: String
+      - name: content
+        dataType:
+          type: String
+    description: null
+    author: rohitjain@simpledatalabs.com
+    files:
+    - snapshots/snapshot2.sql
+    - .prophecy/ide/snapshots/snapshot2.json
+    sqlDependencies:
+      models: []
+      datasets: []
+      seeds: []
+      sources: []
+      snapshots: []
+    createdAt: '2024-08-07 14:12:32'
 sqlTests: {}
-sqlMacros: {}
+sqlMacros:
+  .prophecy/metadata/sqlmacros/gem1:
+    name: gem1
+    macroType: query
+    description: null
+    author: rohitjain@simpledatalabs.com
+    files:
+    - macros/gem2/gem2.sql
+    - .prophecy/ide/macros/gem1.json
+    createdAt: '2024-10-21 11:41:36'
 sqlSeeds: {}
 sqlSources:
   .prophecy/metadata/sqlsources/dais_gen_ai_web_bronze:
@@ -105,6 +141,7 @@ sqlSources:
     tables:
     - name: content
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: url
@@ -126,6 +163,7 @@ sqlSources:
     tables:
     - name: all_type_non_partitioned
       schema:
+        entityType: ''
         providerType: databricks
         fields:
         - name: c_tinyint

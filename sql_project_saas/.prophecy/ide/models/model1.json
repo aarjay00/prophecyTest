@@ -43,6 +43,7 @@
         "inputs" : [ {
           "id" : "c81m35X0",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "url",
@@ -61,6 +62,7 @@
         "outputs" : [ {
           "id" : "TYC0ghUH",
           "schema" : {
+            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "url",
@@ -103,6 +105,7 @@
         "outputs" : [ {
           "id" : "_Bk1YF7xKgZ0GJbDMhKxa",
           "schema" : {
+            "entityType" : "",
             "providerType" : "databricks",
             "fields" : [ {
               "name" : "url",
